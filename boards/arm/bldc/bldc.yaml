@@ -14,7 +14,6 @@ supported:
   - spi
   - watchdog
   - usb_device
-  - i3g4250d
   - nvs
   - can
   - pwm
