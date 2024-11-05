@@ -21,19 +21,32 @@
 		zephyr,canbus = &can1;
 	};
 
-	gpio_inputs {
-		usb_sense: usb_sense {
+	leds {
+		compatible = "gpio-leds";
+		usb_dp_pu: usb_dp_pu_0 {
+			gpios = <&gpioa 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+			label = "USB RENUMERATION";
+		};
+		led: led0 {
+			label = "User";
+			gpios = <&gpioc 13 GPIO_ACTIVE_HIGH>;
+			label = "LED0";
+		};
+	};
+
+	gpio_keys {
+		compatible = "gpio-keys";
+		usb_sense: usb_sense_0 {
 			gpios = <&gpioa 10 GPIO_ACTIVE_HIGH>;
 			label = "USB SENSE";
 		};
 	};
-	gpio_outputs {
-		usb_dp_pu: usb_dp_pu {
-			gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>;
-			label = "USB RENUMERATION";
-		};
+
+	aliases {
+		led0 = &led;
 	};
 };
+
 
 &clk_lsi {
 	status = "okay";
