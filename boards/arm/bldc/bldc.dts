@@ -5,13 +5,12 @@
  */
 
 /dts-v1/;
-#include <st/f3/stm32f303Xc.dtsi>
+#include <st/f3/stm32f303Xb.dtsi>
 #include <st/f3/stm32f303v(b-c)tx-pinctrl.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
 	model = "bldc";
-	compatible = "st,stm32f3discovery";
 
 	chosen {
 		zephyr,console = &usart1;
