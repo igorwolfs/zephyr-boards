@@ -22,11 +22,7 @@
 
 	leds {
 		compatible = "gpio-leds";
-		usb_dp_pu: usb_dp_pu_0 {
-			gpios = <&gpioa 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-			label = "USB RENUMERATION";
-		};
-		led: led0 {
+		led_0: led_0 {
 			label = "User";
 			gpios = <&gpioc 13 GPIO_ACTIVE_HIGH>;
 			label = "LED0";
@@ -39,20 +35,19 @@
 			gpios = <&gpioa 10 GPIO_ACTIVE_HIGH>;
 			label = "USB SENSE";
 		};
+		usb_dp_pu: usb_dp_pu_0 {
+			gpios = <&gpioa 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+			label = "USB RENUMERATION";
+		};
 	};
 
 	aliases {
-		led0 = &led;
+		led0 = &led_0;
 	};
 };
 
 
-&clk_lsi {
-	status = "okay";
-};
-
 &clk_hse {
-	hse-bypass;
 	clock-frequency = <DT_FREQ_M(8)>;
 	status = "okay";
 };
@@ -80,7 +75,6 @@
 	current-speed = <115200>;
 	status = "okay";
 };
-*/
 
 // OK
 &i2c1 {
@@ -141,6 +135,7 @@ zephyr_udc0: &usb {
 		pinctrl-names = "default";
 	};
 };
+*/
 
 /*
 
@@ -178,7 +173,6 @@ zephyr_udc0: &usb {
 	st,adc-prescaler = <2>;
 	status = "okay";
 };
-*/
 &die_temp {
 	status = "okay";
 };
@@ -194,3 +188,4 @@ zephyr_udc0: &usb {
 &vbat {
 	status = "okay";
 };
+*/
